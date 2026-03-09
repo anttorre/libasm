@@ -1,7 +1,7 @@
 global ft_strlen
 section .text
 ft_strlen:
-    mov rax, 0
+    xor rax, rax
 .loop:
     cmp byte [rdi + rax], 0
     je .done
