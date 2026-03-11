@@ -1,11 +1,17 @@
 global ft_strlen
+
 section .text
+
 ft_strlen:
     xor rax, rax
-.loop:
+
+.counter:
     cmp byte [rdi + rax], 0
-    je .done
+    je .end
     inc rax
-    jmp .loop
-.done:
+    jmp .counter
+
+.end:
     ret
+
+section .note.GNU-stack noalloc noexec nowrite progbits
