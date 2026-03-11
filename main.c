@@ -15,5 +15,5 @@ int main (void)
     int result_c = strcmp("Antonio", "antonio");
     printf("STRCMP TEST:\nResult ASM: %d\nResult C: %d\n\n", result_asm, result_c);
     
-    return 0;a
+    return 0;
 }
