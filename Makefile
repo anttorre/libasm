@@ -20,17 +20,14 @@ OBJS_S	= $(SRCS_S:.s=.o)
 
 OBJS	= $(OBJS_S)
 
-# Regla principal
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(SRCS_C)
 	@echo "$(MAGENTA)$(BOLD)Linking...$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJS) $(SRCS_C) -o $(NAME)
 	@echo "$(CYAN)$(BOLD)Done$(RESET)"
 
-# Compilar C
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-# Compilar ASM con nasm
 %.o: %.s
 	@$(NASM) $(ASMFLAGS) $< -o $@
 

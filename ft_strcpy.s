@@ -2,14 +2,16 @@ global ft_strcpy
 section .text
 
 ft_strcpy:
-    mov rcx, 0
+    xor rcx, rcx              
 .loop:
-    mov al, [rsi + rcx]
-    mov [rdi + rcx], al
-    cmp al, 0
-    je .done
-    inc rcx
-    jmp .loop
+    mov al, [rsi + rcx]     
+    mov [rdi + rcx], al     
+    cmp al, 0               
+    je .done                
+    inc rcx                 
+    jmp .loop               
 .done:
-    mov rax, rdi
+    mov rax, rdi            
     ret
+
+section .note.GNU-stack noalloc noexec nowrite progbits

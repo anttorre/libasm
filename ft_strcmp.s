@@ -9,7 +9,7 @@ ft_strcmp:
     cmp al, dl
     jne .diff
 
-    test al, al
+    cmp al, 0
     je .end
 
     inc rdi
