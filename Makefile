@@ -8,13 +8,13 @@ RESET	:= \033[0m
 CC		= gcc
 NASM	= nasm
 
-CFLAGS	= -Wall -Werror -Wextra
-ASMFLAGS = -f elf64
+CFLAGS	= -Wall -Werror -Wextra -fPIE
+ASMFLAGS = -f elf64 -F dwarf
 
 NAME	= main
 
 SRCS_C  = main.c
-SRCS_S	= ft_strlen.s ft_strcmp.s ft_strcpy.s
+SRCS_S	= ft_strlen.s ft_strcmp.s ft_strcpy.s ft_write.s
 
 OBJS_S	= $(SRCS_S:.s=.o)
 
