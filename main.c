@@ -11,8 +11,8 @@ int main (void)
     size_t len_c = strlen("Hello, World!");
     printf("STRLEN TEST:\nLenght ASM: %zu\nLenght C: %zu\n\n", len_asm, len_c);
 
-    int result_asm = ft_strcmp("Antonio", "antonio");
-    int result_c = strcmp("Antonio", "antonio");
+    int result_asm = ft_strcmp("antonio", "antonio");
+    int result_c = strcmp("antonio", "antonio");
     printf("STRCMP TEST:\nResult ASM: %d\nResult C: %d\n\n", result_asm, result_c);
     
     return 0;

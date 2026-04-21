@@ -2,27 +2,42 @@ global ft_strcmp
 section .text
 
 ft_strcmp:
-    xor rcx, rcx
-.loop:
-    mov al, [rdi + rcx]
-    mov dl, [rsi + rcx]
-    cmp al, 0
-    je .end
+.compare:
+    mov al, [rdi]
+    mov dl, [rsi]
+
     cmp al, dl
-    jne .end
-    inc rcx
-    jmp .loop
-.end:
-    movzx rax, al
-    movzx rdx, dl
-    sub rax, rdx
-    jz .done
-    js .negative 
-    mov rax, 1
+    jne .diff
+
+    test al, al
+    je .end
+
+    inc rdi
+    inc rsi
+    jmp .compare
+
+.diff:
+    movzx eax, al
+    movzx edx, dl
+    sub eax, edx
+
+    cmp eax, 0
+    je .equal
+    jl .neg
+
+    mov eax, 1
     ret
-.negative:
-    mov rax, -1
-.done:
+
+.equal:
+    mov eax, 0
+    ret
+
+.neg:
+    mov eax, -1
+    ret
+
+.end:
+    xor rax, rax
     ret
 
 section .note.GNU-stack noalloc noexec nowrite progbits
